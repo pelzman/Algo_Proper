@@ -2,12 +2,15 @@ name: Build and Test
 
 on:
   push:
-    branches: [main]
+    branches: 
+      -main
   pull_request:
-    branches: [main]
+    branches: 
+     -main
 
 jobs:
-  test:
+  build:
+    name: Test
     runs-on: ubuntu-latest
 
     steps:
@@ -17,7 +20,7 @@ jobs:
     - name: Set up Node.js
       uses: actions/setup-node@v3
       with:
-        node-version: '14'  # Adjust the Node.js version as needed
+        node-version: '18'  # Adjust the Node.js version as needed
     
     - name: Install Dependencies
       run: npm install  # Assuming you have a package.json file
