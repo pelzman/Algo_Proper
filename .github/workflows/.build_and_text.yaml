@@ -1,0 +1,26 @@
+name: Build and Test
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+    
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '14'  # Adjust the Node.js version as needed
+    
+    - name: Install Dependencies
+      run: npm install  # Assuming you have a package.json file
+    
+    - name: Run Tests
+      run: npm test  # Adjust this command based on your project's testing setup
